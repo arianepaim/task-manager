@@ -47,7 +47,7 @@ const TaskEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (image || (task.files && task.files.id)) {
+    if (image && (task.files && task.files.id)) {
       const updatedTask = {
         id: taskId,
         description,
@@ -56,13 +56,13 @@ const TaskEdit = () => {
       };
 
       dispatch(updateTask(updatedTask));
-
-      if (image) {
-        dispatch(uploadImageTask({ idTask: taskId, image }));
-      }
+      navigate('/');
+      return 
     }
-
-    navigate('/');
+    if (image) {
+      dispatch(uploadImageTask({ idTask: taskId, image }));
+      navigate('/');
+    }    
   };
 
   return (

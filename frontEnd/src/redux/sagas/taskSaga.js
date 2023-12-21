@@ -55,7 +55,7 @@ function* handleUpdateTask(action) {
 
       const formData = new FormData();
       formData.append('file', action.payload.image);
-
+      
       const uploadResponse = yield call(api.put, `/api/uploadFile/${response.data.id}`, formData);
       yield put(uploadImageTaskSuccess(uploadResponse.data));
     }

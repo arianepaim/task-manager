@@ -16,6 +16,7 @@ const TaskForm = () => {
   });
 
   const [imageName, setImageName] = useState('');
+  const [showValidation, setShowValidation] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +36,14 @@ const TaskForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Adiciona a validação para garantir que a descrição tenha pelo menos 3 caracteres
+    if (task.description.length < 3) {
+      setShowValidation(true);
+      return;
+    }
+
+    setShowValidation(false);
     await dispatch(addTask(task));
     navigate('/');
   };
@@ -59,6 +68,9 @@ const TaskForm = () => {
               className="form-input w400 mb"
               required
             />
+            {showValidation && task.description.length < 3 && (
+              <span className="validation-error">A descrição deve ter pelo menos 3 caracteres.</span>
+            )}
 
             <label>Status:</label>
             <select

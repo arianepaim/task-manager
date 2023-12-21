@@ -19,7 +19,7 @@
   font-size: 14px;
   text-align: left;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
   margin-bottom: 50px;
@@ -32,7 +32,6 @@
     height: 100%;
   }
 }
-
 
 .table-title {
   font-size: 2em;
