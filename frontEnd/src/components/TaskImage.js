@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchTasks } from '../redux/actions/taskActions';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const TaskImage = () => {
   const { taskId } = useParams();
@@ -28,7 +29,9 @@ const TaskImage = () => {
               margin: 'auto',
             }}
           />
-
+          <Link to="/" style={{ display: 'block', textAlign: 'center', marginTop: '10px' }}>
+            <FontAwesomeIcon icon={faArrowLeft} size="3x" /> 
+          </Link>
         </div>
       )}
     </div>
