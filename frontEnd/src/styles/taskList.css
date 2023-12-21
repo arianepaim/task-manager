@@ -1,0 +1,144 @@
+.container {
+  background-color: #e4e9eec9;
+  width: 100%;
+  height: 98vh;
+}
+
+.modern-table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modern-table {
+  border-collapse: collapse;
+  width: 70%;
+  height: 80vh;
+  color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .modern-table {
+    height: 100%;
+  }
+}
+
+
+.table-title {
+  font-size: 2em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.new-task-button {
+  padding: 10px 20px;
+  background-color: #2a8424;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10rem;
+}
+
+.new-task-button:hover {
+  background-color: #1bb51d;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-row {
+  background-color: #fff;
+}
+
+.task-description,
+.task-status,
+.task-files,
+.task-actions-container,
+.task-actions-container button {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #e4e9eec9;
+}
+
+.task-actions-container {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.image-link,
+.edit-link {
+  padding: 10px 0px;
+  background-color: transparent;
+  border: none !important;
+  cursor: pointer;
+  outline: none;
+}
+
+.update-button {
+  padding: 10px 20px;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 8rem;
+}
+
+.delete-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none !important;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.update-button:hover {
+  background-color: #ff6d00;
+}
+
+.update-button:disabled {
+  background-color: #ffcc66;
+}
+
+.no-tasks-message {
+  text-align: center;
+  margin-top: 130px;
+  color: #555;
+  display: flex;
+  font-size: 40px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-tasks-message p {
+  margin-bottom: 10px;
+}

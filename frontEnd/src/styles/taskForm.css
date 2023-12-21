@@ -1,0 +1,100 @@
+  .download-icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .custom-file-upload-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .task-form-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-collapse: collapse;
+    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .save-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+  }
+
+  .save-button svg {
+    margin-right: 10px;
+  }
+
+  .save-button:hover {
+    background-color: #d35400;
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .custom-file-upload {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70px;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-row-download {
+    margin: 3rem 0rem 4rem 8rem;
+  }
+
+  .custom-file-upload:hover {
+    background-color: #ecf0f1;
+  }
+
+  .info-task {
+    width: 100% !important;
+  }
+
+  .remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #e74c3c;
+  }
+
+  .cancel-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #3498db;
+  }
+
+  .btn-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
