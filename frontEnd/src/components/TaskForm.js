@@ -37,7 +37,6 @@ const TaskForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Adiciona a validação para garantir que a descrição tenha pelo menos 3 caracteres
     if (task.description.length < 3) {
       setShowValidation(true);
       return;

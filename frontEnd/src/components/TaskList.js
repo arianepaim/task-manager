@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchTasks, updateTask, deleteTask } from '../redux/actions/taskActions';
@@ -14,6 +14,8 @@ const statusMapping = {
 const TaskList = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasks);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,17 +36,62 @@ const TaskList = () => {
     }
   };
 
+  const filteredTasks = tasks.filter((task) =>
+    task.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const sortedTasks = filteredTasks.sort((a, b) => {
+    const compareValueA = a.description;
+    const compareValueB = b.description;
+
+    switch (sortOrder) {
+      case 'asc':
+        return compareValueA.localeCompare(compareValueB);
+      case 'desc':
+        return compareValueB.localeCompare(compareValueA);
+      case 'ascId':
+        return a.id - b.id;
+      case 'descId':
+        return b.id - a.id;
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className='container'>
       <div className="modern-table-container">
         <div className="modern-table">
           <h2 className="table-title">Tarefas</h2>
           <div className="button-container">
+            <div className="search-container">
+              <label htmlFor="searchInput">Pesquisar:</label>
+              <input
+                type="text"
+                id="searchInput"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Digite para pesquisar..."
+              />
+            </div>
+            <div className="sort-container">
+              <label htmlFor="sortOrder">Ordenar por:</label>
+              <select
+                id="sortOrder"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="asc">A-Z</option>
+                <option value="desc">Z-A</option>
+                <option value="ascId">Crescente </option>
+                <option value="descId">Decrescente</option>
+              </select>
+            </div>
             <Link to="/add">
               <button className="new-task-button">Nova tarefa</button>
             </Link>
           </div>
-          {tasks.length === 0 ? (
+          {sortedTasks.length === 0 ? (
             <div className="no-tasks-message">
               <p>Nenhuma tarefa encontrada.</p>
               <FontAwesomeIcon icon={faClipboardList} size="3x" color="#3498db" />
@@ -60,7 +107,7 @@ const TaskList = () => {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((task) => (
+                {sortedTasks.map((task) => (
                   <tr key={task.id} className="task-row">
                     <td className="task-description">{task.description}</td>
                     <td className="task-status">{statusMapping[task.status]}</td>
