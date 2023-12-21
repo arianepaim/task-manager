@@ -22,7 +22,7 @@ public class Files {
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "tasks_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "id"))
+    @JoinColumn(name = "tasks_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_files_task"))
     private Task task;
 
     public Files(String fileName, String type, byte[] data, Task task) {

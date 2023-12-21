@@ -28,6 +28,6 @@ public class Task {
     private TaskStatus status;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "files_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "id"))
+    @JoinColumn(name = "files_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_task_files"))
     private Files files;
 }
