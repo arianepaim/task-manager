@@ -18,11 +18,13 @@ public class Files {
     private Long id;
     private String fileName;
     private String type;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] data;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "tasks_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_files_task"))
+    @JoinColumn(name = "tasks_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_files_tasks"))
     private Task task;
 
     public Files(String fileName, String type, byte[] data, Task task) {
